@@ -1,0 +1,7 @@
+---
+portsentry_base_addresses:
+  - "127.0.0.1/32"
+  - "0.0.0.0"
+
+portsentry_ignore_addresses:
+  - "192.168.1.1/24"

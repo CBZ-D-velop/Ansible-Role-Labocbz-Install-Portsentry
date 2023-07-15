@@ -1,0 +1,17 @@
+---
+- name: "Start and enable Portsentry"
+  register: portsentry_service_status
+  changed_when: portsentry_service_status.state != "started"
+  ansible.builtin.service:
+    name: "portsentry"
+    state: "started"
+    enabled: yes
+
+- name: "Restart Portsentry"
+  register: portsentry_service_status
+  changed_when: portsentry_service_status.state != "restarted"
+  ansible.builtin.service:
+    name: "portsentry"
+    state: "restarted"
+    daemon_reload: true
+    enabled: yes

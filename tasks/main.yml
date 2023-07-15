@@ -1,0 +1,35 @@
+---
+- name: Install packages"
+  notify: "Start and enable Portsentry"
+  ansible.builtin.package:
+    update_cache: true
+    name:
+      - portsentry
+      - iptables
+
+- name: "Import / Copy Portsentry configuration files"
+  block:
+    - name: "Copy Portsentry .conf file"
+      ansible.builtin.copy:
+        src: "files/portsentry.conf"
+        dest: "/etc/portsentry/portsentry.conf"
+        owner: "root"
+        group: "root"
+        mode: 0600
+
+    - name: "Copy Portsentry configuration default file"
+      ansible.builtin.copy:
+        src: "files/portsentry"
+        dest: "/etc/default/portsentry"
+        owner: "root"
+        group: "root"
+        mode: 0600
+
+- name: "Import Portsentry portsentry.ignore.static configuration file and restart service"
+  notify: "Restart Portsentry"
+  ansible.builtin.template:
+    src: "templates/portsentry.ignore.static.j2"
+    dest: "/etc/portsentry/portsentry.ignore.static"
+    owner: "root"
+    group: "root"
+    mode: 0600
