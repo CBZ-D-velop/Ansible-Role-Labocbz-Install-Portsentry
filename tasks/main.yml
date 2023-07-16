@@ -1,5 +1,5 @@
 ---
-- name: Install packages"
+- name: "Install packages"
   notify: "Start and enable Portsentry"
   ansible.builtin.package:
     update_cache: true
