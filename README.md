@@ -15,6 +15,14 @@
 
 An Ansible role to install and configure Portsentry on your host.
 
+The Ansible role installs and configures Portsentry, a security tool used to detect and block port scans and suspicious activities on a system. The role offers the flexibility to define base addresses and whitelist specific addresses, ensuring trusted sources are not blocked by Portsentry. The configuration of excluded ports is managed through a pre-existing non-templated file available within the role's source code (files/ directory).
+
+By deploying Portsentry with this role, administrators can enhance the security of their systems by proactively detecting and mitigating potential attacks. The ability to customize base addresses and whitelist rules empowers administrators to tailor the role to their specific network environment, ensuring legitimate traffic is not mistakenly blocked.
+
+The role provides a streamlined approach to set up and configure Portsentry effectively, while the management of excluded ports through a pre-existing configuration file ensures consistency and ease of adaptation between deployments.
+
+In summary, the Portsentry role offers a robust solution to bolster system security against port scans and suspicious activities, empowering administrators with customizable options to accommodate their network requirements while avoiding the blocking of trusted sources.
+
 ## Folder structure
 
 By default Ansible will look in each directory within a role for a main.yml file for relevant content (also man.yml and main):
