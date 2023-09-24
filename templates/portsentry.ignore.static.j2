@@ -31,13 +31,13 @@
 #  First we've got base addresses
 {% if portsentry_base_addresses | default(false) %}
 {% for portsentry_base_addresse in portsentry_base_addresses %}
-{{portsentry_base_addresse }}
+{{ portsentry_base_addresse }}
 {% endfor %}
 {% endif %}
 
 # Now we've others addresses categories
 {% if portsentry_ignore_addresses | default(false) %}
 {% for portsentry_ignore_addresse in portsentry_ignore_addresses %}
-{{portsentry_ignore_addresses }}
+{{ portsentry_ignore_addresse }}
 {% endfor %}
 {% endif %}
