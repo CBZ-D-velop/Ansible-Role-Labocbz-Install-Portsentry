@@ -2,7 +2,7 @@
 - name: "Install packages"
   notify: "Start and enable Portsentry"
   ansible.builtin.package:
-    update_cache: false
+    update_cache: true
     name:
       - "portsentry"
       - "iptables"
