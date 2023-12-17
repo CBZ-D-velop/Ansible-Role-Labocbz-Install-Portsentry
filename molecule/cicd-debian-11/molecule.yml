@@ -58,7 +58,6 @@ scenario:
   test_sequence:
     - "destroy"
     - "syntax"
-<<<<<<< HEAD
     #- "dependency"
     #- "create"
     #- "prepare"
@@ -66,12 +65,3 @@ scenario:
     #- "idempotence"
     #- "verify"
     #- "destroy"
-=======
-    - "dependency"
-    - "create"
-    - "prepare"
-    - "converge"
-    - "idempotence"
-    - "verify"
-    - "destroy"
->>>>>>> 60d1d4df0c3d2fb8140b13e1f13c40a69fde6cc2
