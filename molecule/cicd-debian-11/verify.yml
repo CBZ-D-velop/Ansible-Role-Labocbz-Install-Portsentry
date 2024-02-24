@@ -2,13 +2,13 @@
 # Don't forget to keep this file updated
 # molecule/<scenario>/verify.yml
 - name: "Verify"
-  hosts: "all"
+  hosts: "cicd-debian-11"
   gather_facts: false
   tasks:
 
     - name: "Get Portsentry service current state"
-      register: portsentry_service_status
-      failed_when: not portsentry_service_status.status.ActiveState == 'active'
+      register: install_portsentry__service_status
+      failed_when: not install_portsentry__service_status.status.ActiveState == 'active'
       ansible.builtin.systemd:
         name: "portsentry"
 
