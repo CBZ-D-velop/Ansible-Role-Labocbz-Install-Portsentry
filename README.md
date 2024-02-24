@@ -106,11 +106,11 @@ Some vars a required to run this role:
 
 ```YAML
 ---
-portsentry_base_addresses:
+install_portsentry__base_addresses:
   - "127.0.0.1/32"
   - "0.0.0.0"
 
-portsentry_ignore_addresses:
+install_portsentry__ignore_addresses:
   - "192.168.1.1/24"
 
 ```
@@ -124,11 +124,11 @@ In order to surchage vars, you have multiples possibilities but for mains cases 
 ```YAML
 # From inventory
 ---
-inv_portsentry_base_addresses:
+inv_install_portsentry__base_addresses:
   - "127.0.0.1/32"
   - "0.0.0.0"
 
-inv_portsentry_ignore_addresses:
+inv_install_portsentry__ignore_addresses:
   - "192.168.1.1/24"
   - "192.168.1.2/24"
   - "192.168.1.3/24"
@@ -148,12 +148,12 @@ To run this role, you can copy the molecule/default/converge.yml playbook and ad
 
 ```YAML
 - name: "Include labocbz.install_portsentry"
-    tags:
+  tags:
     - "labocbz.install_portsentry"
-    vars:
-    portsentry_base_addresses: "{{ inv_portsentry_base_addresses }}"
-    portsentry_ignore_addresses: "{{ inv_portsentry_ignore_addresses }}"
-    ansible.builtin.include_role:
+  vars:
+    install_portsentry__base_addresses: "{{ inv_install_portsentry__base_addresses }}"
+    install_portsentry__ignore_addresses: "{{ inv_install_portsentry__ignore_addresses }}"
+  ansible.builtin.include_role:
     name: "labocbz.install_portsentry"
 ```
 
@@ -171,6 +171,11 @@ Here you can put your change to keep a trace of your work and decisions.
 * Molecule now use remote Docker image by Lord Robin Crombez
 * Molecule now use custom Docker image in CI/CD by env vars
 * New CICD with needs and optimization
+
+### 2024-02-24: Fix and CI
+
+* Added support for new CI base
+* Edit all vars with __
 
 ## Authors
 

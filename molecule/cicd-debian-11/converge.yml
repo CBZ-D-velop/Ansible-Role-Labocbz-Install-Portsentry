@@ -1,19 +1,13 @@
 ---
 - name: "Converge"
-  hosts: "all"
+  hosts: "cicd-debian-11"
   tasks:
-    # replace these tasks with whatever you find suitable to test
-    - name: "Copy something to test use of synchronize module"
-      ansible.builtin.copy:
-        src: "/etc/hosts"
-        dest: "/tmp/hosts-from-controller"
-        mode: 0700
 
     - name: "Include labocbz.install_portsentry"
       tags:
         - "labocbz.install_portsentry"
       vars:
-        portsentry_base_addresses: "{{ inv_portsentry_base_addresses }}"
-        portsentry_ignore_addresses: "{{ inv_portsentry_ignore_addresses }}"
+        install_portsentry__base_addresses: "{{ inv_install_portsentry__base_addresses }}"
+        install_portsentry__ignore_addresses: "{{ inv_install_portsentry__ignore_addresses }}"
       ansible.builtin.include_role:
         name: "labocbz.install_portsentry"
